@@ -10,13 +10,11 @@ matches = []
 root = "C:/Users/Anil/OneDrive/Desktop/Gitignore_Test"  # Root directory
 f = open(root + "/.gitignore", "r")  # Gitignore file
 
-for count, line in enumerate(f):
-    pass
-count = count + 1  # Gets the number of lines in the Gitignore file
+count = sum(1 for line in f)
 
 i = 0  # Count for lines
 f = open(root + "/.gitignore", "r")
-for x in f:  # Cycles through each line
+for x in f:
     i = i + 1
     if i == count:
         gitignore_Paths.append(x)  # Adds the last file name to the list
@@ -31,13 +29,9 @@ for path, subdirs, files in os.walk(
     root
 ):
     for name in files:
-        # print(path + "/" + name)
         all_Paths.append(path + "/" + name)
         all_Files.append(name)
 
-
-# Fixes the issue with a subdirectory adding a slash as well as
-# changed the direction of the slash for consistency
 for i in range(
     len(all_Paths)
 ):
